@@ -1,0 +1,69 @@
+///////// COLORS
+// $primary-color: #3498db;
+// $secondary-color: #9ec862;
+
+////////// FONTS
+$primary-font: 'Roboto', sans-serif;
+
+///////// TRANSITION
+// $smooth-trans: all 0.3s ease-in-out;
+
+///////// BOX SHADOW
+$shadow-1: 0 0 2px #000;
+// $shadow-2: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+///////// BREAKPONTS
+// $bp-lg: 50em;
+// $bp-md: 43.75em;
+
+////////// MIXIN
+@mixin alignItemCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // position: $typePosition;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+
+  // @if $typePosition == 'fixed' {
+  //   text-align: center;
+  // }
+}
+
+//////////////////////////////////////
+/////////////////////////////////////
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: #333;
+  font-weight: 400;
+  font-family: $primary-font;
+  line-height: 1.4;
+}
+
+//////////////////////////////////////////
+
+.container {
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: #222;
+
+  @include alignItemCenter();
+}
