@@ -3,13 +3,13 @@
 // $secondary-color: #9ec862;
 
 ////////// FONTS
-$primary-font: 'Roboto', sans-serif;
+$primary-font: 'Lato', sans-serif;
 
 ///////// TRANSITION
 // $smooth-trans: all 0.3s ease-in-out;
 
 ///////// BOX SHADOW
-$shadow-1: 0 0 2px #000;
+$shadow-1: 0 3px 15px rgba(100, 100, 100, 0.5);
 // $shadow-2: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
 ///////// BREAKPONTS
@@ -52,7 +52,7 @@ html {
 }
 
 body {
-  color: #333;
+  color: #222;
   font-weight: 400;
   font-family: $primary-font;
   line-height: 1.4;
@@ -61,9 +61,68 @@ body {
 //////////////////////////////////////////
 
 .container {
-  min-height: 100vh;
-  max-width: 100vw;
-  background-color: #222;
+  background: #efefbb;
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
+  flex-direction: column;
 
   @include alignItemCenter();
+}
+
+.heading--1 {
+  font-size: 3.5rem;
+  margin: 3rem;
+  letter-spacing: 3px;
+}
+
+.pokemon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+  max-width: 120rem;
+  margin: 0 auto;
+  text-align: center;
+
+  &__card {
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: $shadow-1;
+    padding: 2rem;
+    margin: 1rem;
+
+    &__img {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      width: 12rem;
+      height: 12rem;
+
+      img {
+        max-width: 90%;
+        margin-top: 2rem;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__info {
+    margin-top: 2rem;
+
+    &__number {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      display: inline;
+    }
+
+    &__name {
+      font-size: 1.6rem;
+      margin: 1.5rem 0 0.7rem;
+      letter-spacing: 1px;
+    }
+
+    &__number,
+    &__type {
+      font-size: 1.2rem;
+    }
+  }
 }
