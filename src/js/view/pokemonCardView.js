@@ -1,8 +1,15 @@
-class pokemonCard {
+class pokemonCardView {
+  _container = document.querySelector('.container');
+  _heading = document.querySelector('.heading--1');
   _pokemonContainer = document.querySelector('.pokemon');
 
   createPokemonCard(pokemons, colors) {
-    const mainTypes = Object.keys(colors);
+    // Shows when loading or waiting fetch the API
+    if (pokemons) {
+      this._container.style.height = '100%';
+      this._container.querySelector('.heading--1').innerHTML = 'Pokedex';
+      this._container.querySelector('.spinner').remove();
+    }
 
     pokemons.forEach(pokemon => {
       const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
@@ -39,4 +46,4 @@ class pokemonCard {
     });
   }
 }
-export default new pokemonCard();
+export default new pokemonCardView();

@@ -2,9 +2,16 @@
 
 import { getData } from './model.js';
 import pokemonCardView from './view/pokemonCardView.js';
+import pokemonLoadingView from './view/pokemonLoadingView.js';
 import { POKEMON_COLORS } from './config.js';
 
-const control = async function () {
+// Display loading animation
+const controlLoader = function () {
+  pokemonLoadingView.createPokemonLoader();
+};
+
+// Display UI cards
+const controlView = async function () {
   try {
     const data = await getData();
 
@@ -13,4 +20,10 @@ const control = async function () {
     console.log(err);
   }
 };
-control();
+
+// Initialization
+const init = () => {
+  controlLoader();
+  controlView();
+};
+document.addEventListener('DOMContentLoaded', init);
