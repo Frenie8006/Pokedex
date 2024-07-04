@@ -4,13 +4,13 @@ import { getAJAX } from './helpers.js';
 
 export const getData = async function () {
   try {
-    const result = [];
+    const promises = [];
 
     for (let i = 1; i <= POKEMON_COUNTS; i++) {
-      const data = await getAJAX(`${APT_KEY}${i}`);
-
-      result.push(data);
+      promises.push(getAJAX(`${APT_KEY}${i}`));
     }
+
+    const result = await Promise.all(promises);
 
     return result;
   } catch (err) {

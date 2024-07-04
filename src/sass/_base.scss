@@ -4,6 +4,7 @@
 
 ////////// FONTS
 $primary-font: 'Lato', sans-serif;
+$secondary-font: 'Poppins', sans-serif;
 
 ///////// TRANSITION
 // $smooth-trans: all 0.3s ease-in-out;
@@ -30,6 +31,21 @@ $shadow-1: 0 3px 15px rgba(100, 100, 100, 0.5);
   // @if $typePosition == 'fixed' {
   //   text-align: center;
   // }
+}
+
+@mixin pokemonContainer($width) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+  margin: 0 auto;
+
+  @if ($width == 120) {
+    max-width: 120rem;
+  } @else if ($width == 100) {
+    max-width: 100rem;
+    // flex-wrap: nowrap;
+  }
 }
 
 //////////////////////////////////////
@@ -64,7 +80,8 @@ body {
   background: #efefbb;
   background: linear-gradient(to right, #d4d3dd, #efefbb);
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 100vw;
 
   @include alignItemCenter();
 }
@@ -76,11 +93,11 @@ body {
   img {
     height: 8rem;
     width: 8rem;
-    animation: shake 2s linear infinite;
+    animation: spin 2s linear infinite;
   }
 }
 
-@keyframes shake {
+@keyframes spin {
   0% {
     transform: rotate(0);
   }
@@ -99,13 +116,7 @@ body {
 }
 
 .pokemon {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: center;
-  max-width: 120rem;
-  margin: 0 auto;
-  text-align: center;
+  @include pokemonContainer(120);
 
   &__card {
     background-color: #eee;
@@ -115,6 +126,7 @@ body {
     margin: 1rem;
     cursor: pointer;
     transition: all 0.2s;
+    text-align: center;
 
     &:hover {
       transform: translateY(-3px);

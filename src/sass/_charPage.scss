@@ -1,0 +1,163 @@
+.charPageContainer {
+  width: 85%;
+  background-color: #fafafa;
+  border-radius: 10px;
+  margin: 2rem 4rem;
+}
+
+.pokemon-name {
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-family: $secondary-font;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  margin: 2rem 0 3rem 0;
+  text-align: center;
+
+  span {
+    color: #555;
+  }
+}
+
+.pokemon-container {
+  &__profile {
+    &--img {
+      background-color: #eee;
+      border-radius: 6px;
+      width: 40rem;
+      margin-bottom: 2rem;
+
+      @include alignItemCenter();
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &--stats {
+      background-color: #eee;
+      height: 30rem;
+    }
+  }
+
+  @include pokemonContainer(100);
+
+  > :nth-child(-n + 4) {
+    max-width: 60rem;
+    margin: 1.5rem;
+  }
+
+  &__info {
+    width: 50rem;
+
+    &__title {
+      &__stories {
+        font-size: 1.8rem;
+        font-family: $secondary-font;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        line-height: 1.6;
+      }
+
+      &__version {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        & > * {
+          margin-right: 1rem;
+        }
+
+        &__text {
+          font-size: 2rem;
+        }
+
+        &__button-blue,
+        &__button-red {
+          height: 5rem;
+          width: 5rem;
+          background-color: transparent;
+          border: 4px transparent solid;
+          border-radius: 50%;
+          cursor: pointer;
+
+          img {
+            width: 85%;
+          }
+        }
+
+        &__button-blue {
+          img {
+            filter: brightness(0) saturate(100%) invert(20%) sepia(100%)
+              saturate(5000%) hue-rotate(180deg);
+          }
+        }
+
+        &__button-red {
+          img {
+            filter: brightness(0) saturate(100%) invert(40%) sepia(100%)
+              saturate(7500%) hue-rotate(330deg);
+          }
+        }
+
+        .active-blue {
+          border-color: rgb(48, 167, 215);
+        }
+
+        .active-red {
+          border-color: rgb(235, 133, 154);
+        }
+      }
+    }
+
+    &__abilities {
+      background-color: rgb(48, 167, 215);
+      padding: 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      // justify-content: space-around;
+      margin-bottom: 2rem;
+
+      & > * {
+        margin-right: 10rem;
+      }
+
+      &__category {
+        color: #fff;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+
+        span {
+          color: #222;
+          font-weight: 500;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &__types {
+      &__type {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+        margin-bottom: 3rem;
+
+        &__category {
+          margin-bottom: 1.5rem;
+        }
+
+        &__skills {
+          display: flex;
+
+          p {
+            background-color: #eee;
+            padding: 0.5rem 3.5rem;
+            margin-right: 1rem;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}

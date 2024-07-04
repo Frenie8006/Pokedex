@@ -1,5 +1,5 @@
 export const APT_KEY = 'https://pokeapi.co/api/v2/pokemon/';
-export const POKEMON_COUNTS = 350;
+export const POKEMON_COUNTS = 300;
 export const POKEMON_COLORS = {
   fire: '#FDDFDF',
   grass: '#DEFDE0',

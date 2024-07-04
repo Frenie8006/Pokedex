@@ -11,7 +11,7 @@ class pokemonCardView {
       this._container.querySelector('.spinner').remove();
     }
 
-    pokemons.forEach(pokemon => {
+    pokemons.forEach((pokemon, i) => {
       const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
       const id = pokemon.id.toString().padStart(3, 0);
       const type1 = pokemon.types[0].type.name;
@@ -19,6 +19,7 @@ class pokemonCardView {
 
       const card = document.createElement('div');
       card.classList.add('pokemon__card');
+      card.dataset.pokemon = i;
       card.style.backgroundColor = colors[type1];
 
       const pokemonInnerHTML = `
@@ -27,7 +28,7 @@ class pokemonCardView {
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
                 pokemon.id
               }.png"
-              alt="Pokemon Photo"
+              alt="${pokemon.name}"
             />
         </div>
   
@@ -37,7 +38,7 @@ class pokemonCardView {
           <p class="pokemon__info__type">Type: <span>${type1}${
         type2 ? ',' : ''
       } ${type2}</span></p>
-        </div>
+          </div>
       `;
 
       card.innerHTML = pokemonInnerHTML;

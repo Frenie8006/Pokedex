@@ -25,7 +25,8 @@ body {
   background: #efefbb;
   background: linear-gradient(to right, #d4d3dd, #efefbb);
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,10 +39,10 @@ body {
 .spinner img {
   height: 8rem;
   width: 8rem;
-  animation: shake 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
-@keyframes shake {
+@keyframes spin {
   0% {
     transform: rotate(0);
   }
@@ -62,9 +63,8 @@ body {
   flex-wrap: wrap;
   align-items: space-between;
   justify-content: center;
-  max-width: 120rem;
   margin: 0 auto;
-  text-align: center;
+  max-width: 120rem;
 }
 .pokemon__card {
   background-color: #eee;
@@ -74,6 +74,7 @@ body {
   margin: 1rem;
   cursor: pointer;
   transition: all 0.2s;
+  text-align: center;
 }
 .pokemon__card:hover {
   transform: translateY(-3px);
@@ -112,4 +113,136 @@ body {
 }
 .pokemon__info__number, .pokemon__info__type {
   font-size: 1.2rem;
+}
+
+.charPageContainer {
+  width: 85%;
+  background-color: #fafafa;
+  border-radius: 10px;
+  margin: 2rem 4rem;
+}
+
+.pokemon-name {
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 2px;
+  word-spacing: 3px;
+  margin: 2rem 0 3rem 0;
+  text-align: center;
+}
+.pokemon-name span {
+  color: #555;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100rem;
+}
+.pokemon-container__profile--img {
+  background-color: #eee;
+  border-radius: 6px;
+  width: 40rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pokemon-container__profile--img img {
+  width: 100%;
+}
+.pokemon-container__profile--stats {
+  background-color: #eee;
+  height: 30rem;
+}
+.pokemon-container > :nth-child(-n+4) {
+  max-width: 60rem;
+  margin: 1.5rem;
+}
+.pokemon-container__info {
+  width: 50rem;
+}
+.pokemon-container__info__title__stories {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.pokemon-container__info__title__version {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.pokemon-container__info__title__version > * {
+  margin-right: 1rem;
+}
+.pokemon-container__info__title__version__text {
+  font-size: 2rem;
+}
+.pokemon-container__info__title__version__button-blue, .pokemon-container__info__title__version__button-red {
+  height: 5rem;
+  width: 5rem;
+  background-color: transparent;
+  border: 4px transparent solid;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.pokemon-container__info__title__version__button-blue img, .pokemon-container__info__title__version__button-red img {
+  width: 85%;
+}
+.pokemon-container__info__title__version__button-blue img {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(5000%) hue-rotate(180deg);
+}
+.pokemon-container__info__title__version__button-red img {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(7500%) hue-rotate(330deg);
+}
+.pokemon-container__info__title__version .active-blue {
+  border-color: rgb(48, 167, 215);
+}
+.pokemon-container__info__title__version .active-red {
+  border-color: rgb(235, 133, 154);
+}
+.pokemon-container__info__abilities {
+  background-color: rgb(48, 167, 215);
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.pokemon-container__info__abilities > * {
+  margin-right: 10rem;
+}
+.pokemon-container__info__abilities__category {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+.pokemon-container__info__abilities__category span {
+  color: #222;
+  font-weight: 500;
+  font-size: 2rem;
+}
+.pokemon-container__info__types__type {
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+}
+.pokemon-container__info__types__type__category {
+  margin-bottom: 1.5rem;
+}
+.pokemon-container__info__types__type__skills {
+  display: flex;
+}
+.pokemon-container__info__types__type__skills p {
+  background-color: #eee;
+  padding: 0.5rem 3.5rem;
+  margin-right: 1rem;
+  border-radius: 4px;
 }/*# sourceMappingURL=main.css.map */

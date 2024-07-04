@@ -4,6 +4,7 @@ import { getData } from './model.js';
 import pokemonCardView from './view/pokemonCardView.js';
 import pokemonLoadingView from './view/pokemonLoadingView.js';
 import { POKEMON_COLORS } from './config.js';
+import pokemonPageView from './view/pokemonPageView.js';
 
 // Display loading animation
 const controlLoader = function () {
@@ -13,17 +14,22 @@ const controlLoader = function () {
 // Display UI cards
 const controlView = async function () {
   try {
+    // 1. Fetching the data
     const data = await getData();
 
+    // 2. Display the pokemon cards
     pokemonCardView.createPokemonCard(data, POKEMON_COLORS);
+
+    // 3. Clcik cards
+    pokemonPageView.generatNewPokemonPage(data);
   } catch (err) {
     console.log(err);
   }
 };
 
-// Initialization
+// Initialization;
 const init = () => {
-  controlLoader();
   controlView();
+  controlLoader();
 };
 document.addEventListener('DOMContentLoaded', init);
