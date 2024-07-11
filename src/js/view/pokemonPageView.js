@@ -3,6 +3,12 @@ class PokemonPageView {
 
   generatNewPokemonPage(data) {
     this._container.addEventListener('click', e => {
+      const pokemonCard = e.target.closest('.pokemon__card');
+      // If not clicking inside a pokemon card, exit
+      if (!pokemonCard) return;
+      else
+        this._container.querySelector('.filter-pokemon').classList.add('hide');
+
       // Pokemon data
       const { pokemon } = e.target.closest('.pokemon__card').dataset;
       const pokemonData = data[pokemon];

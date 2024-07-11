@@ -5,6 +5,7 @@ import pokemonCardView from './view/pokemonCardView.js';
 import pokemonLoadingView from './view/pokemonLoadingView.js';
 import { POKEMON_COLORS } from './config.js';
 import pokemonPageView from './view/pokemonPageView.js';
+import pokemonFilterView from './view/pokemonFilterView.js';
 
 // Display loading animation
 const controlLoader = function () {
@@ -20,7 +21,11 @@ const controlView = async function () {
     // 2. Display the pokemon cards
     pokemonCardView.createPokemonCard(data, POKEMON_COLORS);
 
-    // 3. Clcik cards
+    // 3. Filter names or numbers
+    const cards = pokemonCardView.cardsData();
+    pokemonFilterView.filterHandler(cards);
+
+    // 4. Clcik cards
     pokemonPageView.generatNewPokemonPage(data);
   } catch (err) {
     console.log(err);

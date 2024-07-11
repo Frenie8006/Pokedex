@@ -52,10 +52,24 @@ body {
 }
 .heading--1 {
   font-size: 3.5rem;
-  margin: 3rem;
+  margin: 1rem 3rem;
   letter-spacing: 3px;
   text-align: center;
   color: #333;
+}
+
+.filter-pokemon {
+  font-size: 1.6rem;
+  border: none;
+  width: 30rem;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: "Lato", sans-serif;
+}
+.filter-pokemon:focus {
+  outline: none;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
 .pokemon {
@@ -113,6 +127,10 @@ body {
 }
 .pokemon__info__number, .pokemon__info__type {
   font-size: 1.2rem;
+}
+
+.hide {
+  display: none;
 }
 
 .charPageContainer {

@@ -2,6 +2,7 @@ class pokemonCardView {
   _container = document.querySelector('.container');
   _heading = document.querySelector('.heading--1');
   _pokemonContainer = document.querySelector('.pokemon');
+  listCards = [];
 
   createPokemonCard(pokemons, colors) {
     // Shows when loading or waiting fetch the API
@@ -9,6 +10,7 @@ class pokemonCardView {
       this._container.style.height = '100%';
       this._container.querySelector('.heading--1').innerHTML = 'Pokedex';
       this._container.querySelector('.spinner').remove();
+      this._container.querySelector('.filter-pokemon').classList.remove('hide');
     }
 
     pokemons.forEach((pokemon, i) => {
@@ -44,7 +46,13 @@ class pokemonCardView {
       card.innerHTML = pokemonInnerHTML;
 
       this._pokemonContainer.appendChild(card);
+
+      this.listCards.push(card);
     });
+  }
+
+  cardsData() {
+    return this.listCards;
   }
 }
 export default new pokemonCardView();
