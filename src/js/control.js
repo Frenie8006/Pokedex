@@ -7,10 +7,10 @@ import { POKEMON_COLORS } from './config.js';
 import pokemonPageView from './view/pokemonPageView.js';
 import pokemonFilterView from './view/pokemonFilterView.js';
 
-// Display loading animation
-const controlLoader = function () {
-  pokemonLoadingView.createPokemonLoader();
-};
+// // Display loading animation
+// const controlLoader = function () {
+//   pokemonLoadingView.createPokemonLoader();
+// };
 
 // Display UI cards
 const controlView = async function () {
@@ -26,7 +26,8 @@ const controlView = async function () {
     pokemonFilterView.filterHandler(cards);
 
     // 4. Clcik cards
-    pokemonPageView.generatNewPokemonPage(data);
+    const { pokemonContainer } = pokemonCardView;
+    pokemonPageView.generatNewPokemonPage(data, pokemonContainer);
   } catch (err) {
     console.log(err);
   }
@@ -35,6 +36,6 @@ const controlView = async function () {
 // Initialization;
 const init = () => {
   controlView();
-  controlLoader();
+  // controlLoader();
 };
 document.addEventListener('DOMContentLoaded', init);

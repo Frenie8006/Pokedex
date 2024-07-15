@@ -3,6 +3,43 @@
   background-color: #fafafa;
   border-radius: 10px;
   margin: 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 99;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(234, 237, 161);
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &::before {
+    top: -6rem;
+    left: -6rem;
+  }
+
+  &::after {
+    bottom: -6rem;
+    right: -6rem;
+  }
+}
+
+.back {
+  background-color: rgb(48, 167, 215);
+  color: #eee;
+  font-size: 1.6rem;
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: 2px;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
 }
 
 .pokemon-name {

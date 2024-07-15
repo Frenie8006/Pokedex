@@ -1,7 +1,7 @@
 class PokemonPageView {
   _container = document.querySelector('.container');
 
-  generatNewPokemonPage(data) {
+  generatNewPokemonPage(data, pokemonContainer) {
     this._container.addEventListener('click', e => {
       const pokemonCard = e.target.closest('.pokemon__card');
       // If not clicking inside a pokemon card, exit
@@ -31,6 +31,7 @@ class PokemonPageView {
       page.classList.add('charPageContainer');
 
       const pageInnerHTML = `
+        <button class="back">Back</button>
         <h1 class="pokemon-name">${name} <span>#${id}</span></h1>
         <div class="pokemon-container">
           <div class="pokemon-container__profile">
@@ -113,9 +114,9 @@ class PokemonPageView {
                   Weaknesses
                 </h3>
                 <div class="pokemon-container__info__types__type__skills">
-                  <p>Water</p>
-                  <p>Electric</p>
-                  <p>Rock</p>
+                  <p>Unknown</p>
+                  <p>Unknown</p>
+                  <p>Unknown</p>
                 </div>
               </div>
             </div>
@@ -126,6 +127,19 @@ class PokemonPageView {
       page.innerHTML = pageInnerHTML;
 
       this._container.appendChild(page);
+
+      // Back to main page
+      this._container.querySelector('.back').addEventListener('click', () => {
+        page.remove();
+
+        this._container
+          .querySelector('.filter-pokemon')
+          .classList.remove('hide');
+        this._container.querySelector('.filter-pokemon').value = '';
+        this._container.appendChild(pokemonContainer);
+      });
+
+      // Changing the bckgroundColor of psuedos backgroundColor to specific type
     });
   }
 }
