@@ -5,11 +5,10 @@
   margin: 2rem 4rem;
   position: relative;
   overflow: hidden;
+  box-shadow: $shadow-1;
   z-index: 99;
 
-  &::before,
-  &::after {
-    content: '';
+  .box {
     position: absolute;
     background-color: rgb(234, 237, 161);
     height: 40rem;
@@ -18,20 +17,27 @@
     z-index: -1;
   }
 
-  &::before {
+  .box--1 {
     top: -6rem;
     left: -6rem;
   }
 
-  &::after {
+  .box--2 {
     bottom: -6rem;
     right: -6rem;
+  }
+
+  .box--3 {
+    height: 25rem;
+    width: 25rem;
+    bottom: -8rem;
+    right: 25rem;
   }
 }
 
 .back {
-  background-color: rgb(48, 167, 215);
-  color: #eee;
+  background-color: #a4a4a4;
+  color: #fff;
   font-size: 1.6rem;
   border: none;
   padding: 1rem 4rem;
@@ -72,8 +78,61 @@
     }
 
     &--stats {
-      background-color: #eee;
+      background-color: #a4a4a4;
       height: 30rem;
+      width: 40rem;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+
+      .stat-text {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .lists {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        list-style: none;
+
+        &__list {
+          height: 23rem;
+          width: 6.5rem;
+
+          &:not(:last-child) {
+            margin-right: 0.5rem;
+          }
+
+          &__stat {
+            height: 90%;
+            width: 100%;
+
+            .level {
+              background-color: #fff;
+              height: 1.4rem;
+              width: 100%;
+              border-bottom: 0.3rem solid #a4a4a4;
+            }
+
+            .fill {
+              background-color: rgb(48, 167, 215);
+            }
+          }
+        }
+      }
+
+      h4 {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        line-height: 1;
+        font-family: sans-serif;
+        text-align: center;
+      }
     }
   }
 

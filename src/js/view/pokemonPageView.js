@@ -1,10 +1,10 @@
 class PokemonPageView {
   _container = document.querySelector('.container');
 
-  generatNewPokemonPage(data, pokemonContainer) {
+  generatNewPokemonPage(data, pokemonContainer, colors) {
     this._container.addEventListener('click', e => {
       const pokemonCard = e.target.closest('.pokemon__card');
-      // If not clicking inside a pokemon card, exit
+      // If not clicking inside the pokemon card, exit
       if (!pokemonCard) return;
       else
         this._container.querySelector('.filter-pokemon').classList.add('hide');
@@ -43,7 +43,9 @@ class PokemonPageView {
               alt="${pokemonData.name}"
             />
             </div>
-            <div class="pokemon-container__profile--stats"></div>
+            <div class="pokemon-container__profile--stats">${this._generateStatsLevel(
+              pokemonData
+            )}</div>
           </div>
 
           <div class="pokemon-container__info">
@@ -122,11 +124,18 @@ class PokemonPageView {
             </div>
           </div>
         </div>
+        <div class="box box--1"></div>
+        <div class="box box--2"></div>
+        <div class="box box--3"></div>
       `;
 
       page.innerHTML = pageInnerHTML;
 
       this._container.appendChild(page);
+
+      // Adding specific color to the boxes in pokemon page view
+      const boxes = document.querySelectorAll('.box');
+      boxes.forEach(box => (box.style.backgroundColor = colors[type1]));
 
       // Back to main page
       this._container.querySelector('.back').addEventListener('click', () => {
@@ -135,12 +144,82 @@ class PokemonPageView {
         this._container
           .querySelector('.filter-pokemon')
           .classList.remove('hide');
+
         this._container.querySelector('.filter-pokemon').value = '';
+
         this._container.appendChild(pokemonContainer);
       });
 
       // Changing the bckgroundColor of psuedos backgroundColor to specific type
     });
+  }
+
+  _generateStatsLevel(pokemonData) {
+    const HP = pokemonData.stats[0].base_stat;
+    const ATTACK = pokemonData.stats[1].base_stat;
+    const DEFENSE = pokemonData.stats[2].base_stat;
+    const SPECIAL_ATTACK = pokemonData.stats[3].base_stat;
+    const SPECIAL_DEFENSE = pokemonData.stats[4].base_stat;
+    const SPEED = pokemonData.stats[5].base_stat;
+
+    const statsLevel = function (level) {
+      return `
+      <ul class="lists__list__stat">
+        <li class="level ${HP > 150 ? 'fill' : ''}"></li>
+        <li class="level ${level > 140 ? 'fill' : ''}"></li>
+        <li class="level ${level > 130 ? 'fill' : ''}"></li>
+        <li class="level ${level > 120 ? 'fill' : ''}"></li>
+        <li class="level ${level > 110 ? 'fill' : ''}"></li>
+        <li class="level ${level > 100 ? 'fill' : ''}"></li>
+        <li class="level ${level > 90 ? 'fill' : ''}"></li>
+        <li class="level ${level > 80 ? 'fill' : ''}"></li>
+        <li class="level ${level > 70 ? 'fill' : ''}"></li>
+        <li class="level ${level > 60 ? 'fill' : ''}"></li>
+        <li class="level ${level > 50 ? 'fill' : ''}"></li>
+        <li class="level ${level > 40 ? 'fill' : ''}"></li>
+        <li class="level ${level > 30 ? 'fill' : ''}"></li>
+        <li class="level ${level > 20 ? 'fill' : ''}"></li>
+        <li class="level ${level > 10 ? 'fill' : ''}"></li>
+       </ul>
+      `;
+    };
+
+    const statsInnerHTML = `
+      <p class="stat-text">Stats</h3>
+      <ul class="lists">
+        <li class="lists__list">        
+           ${statsLevel(HP)}
+          <h4>HP</h4>
+        </li>
+
+        <li class="lists__list">
+          ${statsLevel(ATTACK)}
+          <h4>Attack</h4>
+        </li>
+
+        <li class="lists__list">
+          ${statsLevel(DEFENSE)}
+          <h4>Defense</h4>
+        </li>
+
+        <li class="lists__list">
+           ${statsLevel(SPECIAL_ATTACK)}
+          <h4>Special Attack</h4>
+        </li>
+
+        <li class="lists__list">
+            ${statsLevel(SPECIAL_DEFENSE)}
+          <h4>Special Defense</h4>
+        </li>
+
+        <li class="lists__list">
+            ${statsLevel(SPEED)}
+          <h4>Speed</h4>
+        </li>
+      </ul>
+    `;
+
+    return statsInnerHTML;
   }
 }
 export default new PokemonPageView();

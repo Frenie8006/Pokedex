@@ -129,6 +129,11 @@ body {
   font-size: 1.2rem;
 }
 
+.unvalid-message {
+  font-size: 2.4rem;
+  margin-top: 1.5rem;
+}
+
 .hide {
   display: none;
 }
@@ -140,10 +145,10 @@ body {
   margin: 2rem 4rem;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   z-index: 99;
 }
-.charPageContainer::before, .charPageContainer::after {
-  content: "";
+.charPageContainer .box {
   position: absolute;
   background-color: rgb(234, 237, 161);
   height: 40rem;
@@ -151,18 +156,24 @@ body {
   border-radius: 50%;
   z-index: -1;
 }
-.charPageContainer::before {
+.charPageContainer .box--1 {
   top: -6rem;
   left: -6rem;
 }
-.charPageContainer::after {
+.charPageContainer .box--2 {
   bottom: -6rem;
   right: -6rem;
 }
+.charPageContainer .box--3 {
+  height: 25rem;
+  width: 25rem;
+  bottom: -8rem;
+  right: 25rem;
+}
 
 .back {
-  background-color: rgb(48, 167, 215);
-  color: #eee;
+  background-color: #a4a4a4;
+  color: #fff;
   font-size: 1.6rem;
   border: none;
   padding: 1rem 4rem;
@@ -207,8 +218,52 @@ body {
   width: 100%;
 }
 .pokemon-container__profile--stats {
-  background-color: #eee;
+  background-color: #a4a4a4;
   height: 30rem;
+  width: 40rem;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+}
+.pokemon-container__profile--stats .stat-text {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+.pokemon-container__profile--stats ul {
+  list-style: none;
+}
+.pokemon-container__profile--stats .lists {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+.pokemon-container__profile--stats .lists__list {
+  height: 23rem;
+  width: 6.5rem;
+}
+.pokemon-container__profile--stats .lists__list:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.pokemon-container__profile--stats .lists__list__stat {
+  height: 90%;
+  width: 100%;
+}
+.pokemon-container__profile--stats .lists__list__stat .level {
+  background-color: #fff;
+  height: 1.4rem;
+  width: 100%;
+  border-bottom: 0.3rem solid #a4a4a4;
+}
+.pokemon-container__profile--stats .lists__list__stat .fill {
+  background-color: rgb(48, 167, 215);
+}
+.pokemon-container__profile--stats h4 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-family: sans-serif;
+  text-align: center;
 }
 .pokemon-container > :nth-child(-n+4) {
   max-width: 60rem;

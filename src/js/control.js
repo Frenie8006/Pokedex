@@ -27,7 +27,11 @@ const controlView = async function () {
 
     // 4. Clcik cards
     const { pokemonContainer } = pokemonCardView;
-    pokemonPageView.generatNewPokemonPage(data, pokemonContainer);
+    pokemonPageView.generatNewPokemonPage(
+      data,
+      pokemonContainer,
+      POKEMON_COLORS
+    );
   } catch (err) {
     console.log(err);
   }
